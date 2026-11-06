@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page">
+    <h1>Список задач</h1>
+    <hr>
+    {% for message in get_flashed_messages() %}
+        <div class="message">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</body>
+</html>

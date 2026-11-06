@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; max-width: 700px; margin: 30px auto; padding: 0 15px; }
+input[type=text] { width: 70%; padding: 6px; }
+button { padding: 6px 12px; }
+li { margin: 6px 0; }
+.message { background: #f0f0f0; border: 1px solid #ccc; padding: 8px; margin: 10px 0; }

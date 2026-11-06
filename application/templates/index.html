@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Новая задача</h2>
+<form method="post">
+    <input name="title" placeholder="Что нужно сделать" type="text">
+    <button type="submit">Добавить</button>
+</form>
+
+<h2>В работе</h2>
+<ol>
+{% for t in todos if not t.done %}
+    <li>{{ t.title }}
+        <a href="{{ url_for('todo.toggle', todo_id=t.id) }}">выполнено</a> |
+        <a href="{{ url_for('todo.edit', todo_id=t.id) }}">изменить</a> |
+        <a href="{{ url_for('todo.delete', todo_id=t.id) }}">удалить</a>
+    </li>
+{% else %}
+    <p>Задач нет</p>
+{% endfor %}
+</ol>
+
+<h2>Выполненные</h2>
+<ol>
+{% for t in todos if t.done %}
+    <li><del>{{ t.title }}</del>
+        <a href="{{ url_for('todo.toggle', todo_id=t.id) }}">вернуть</a> |
+        <a href="{{ url_for('todo.delete', todo_id=t.id) }}">удалить</a>
+    </li>
+{% else %}
+    <p>Пока ничего</p>
+{% endfor %}
+</ol>
+{% endblock %}
